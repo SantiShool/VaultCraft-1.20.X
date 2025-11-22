@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "vaultcraft:block/deepslate_silver_ore"
+  }
+}

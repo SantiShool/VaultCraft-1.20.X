@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "group": "silver_ingot",
+  "ingredient": {
+    "item": "vaultcraft:raw_silver"
+  },
+  "result": "vaultcraft:silver_ingot"
+}

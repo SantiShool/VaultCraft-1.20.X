@@ -1,0 +1,26 @@
+{
+  "item.minecraft.iron_ingot": "Crude Iron Ingot",
+
+  "item.vaultcraft.silver_ingot": "Silver Ingot",
+  "item.vaultcraft.steel_ingot": "Steel Ingot",
+  "item.vaultcraft.raw_silver": "Raw Silver",
+  "item.vaultcraft.raw_ultracite": "Raw Ultracite",
+  "item.vaultcraft.raw_uranium": "Raw Uranium",
+
+  "item.vaultcraft.fuel": "Fuel",
+
+  "item.vaultcraft.deathclaw_omelette": "Deathclaw Omelette",
+
+  "block.vaultcraft.metal_wall": "Metal Wall",
+  "block.vaultcraft.jukebox": "Jukebox",
+
+  "block.vaultcraft.silver_ore": "Silver Ore",
+  "block.vaultcraft.ultracite_ore": "Ultracite Ore",
+  "block.vaultcraft.uranium_ore": "Uranium Ore",
+  "block.vaultcraft.deepslate_silver_ore": "Deepslate Silver Ore",
+  "block.vaultcraft.deepslate_ultracite_ore": "Deepslate Ultracite Ore",
+  "block.vaultcraft.deepslate_uranium_ore": "Deepslate Uranium Ore",
+
+  "creativetab.vc_building_blocks": "VC Building Blocks",
+  "creativetab.vc_ingredients": "VC Ingredients"
+}
