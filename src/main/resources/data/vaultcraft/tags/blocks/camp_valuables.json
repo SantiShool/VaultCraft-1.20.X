@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "vaultcraft:metal_brick",
+    "vaultcraft:metal_engraved",
+    "vaultcraft:metal_paneling"
+  ]
+}

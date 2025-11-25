@@ -1,26 +1,44 @@
 {
+  "item.vaultcraft.camp": "C.A.M.P.",
+  "item.vaultcraft.fuel": "Fuel",
+
   "item.minecraft.iron_ingot": "Crude Iron Ingot",
 
+  "item.vaultcraft.oak_log": "Oak Log",
+  "item.vaultcraft.aluminum_ingot": "Aluminum Ingot",
   "item.vaultcraft.silver_ingot": "Silver Ingot",
   "item.vaultcraft.steel_ingot": "Steel Ingot",
+  "item.vaultcraft.raw_bauxite": "Raw Bauxite",
   "item.vaultcraft.raw_silver": "Raw Silver",
   "item.vaultcraft.raw_ultracite": "Raw Ultracite",
   "item.vaultcraft.raw_uranium": "Raw Uranium",
 
-  "item.vaultcraft.fuel": "Fuel",
-
   "item.vaultcraft.deathclaw_omelette": "Deathclaw Omelette",
 
-  "block.vaultcraft.metal_wall": "Metal Wall",
   "block.vaultcraft.jukebox": "Jukebox",
+  "block.vaultcraft.metal_brick": "Metal Brick",
+  "block.vaultcraft.metal_engraved": "Metal Engraved",
+  "block.vaultcraft.metal_paneling": "Metal Paneling",
+  "block.vaultcraft.rusty_warehouse_plating": "Rusty Warehouse Plating",
+  "block.vaultcraft.rusty_warehouse_treading": "Rusty Warehouse Treading",
+  "block.vaultcraft.rusty_warehouse_walling": "Rusty Warehouse Walling",
+  "block.vaultcraft.warehouse_plating": "Warehouse Plating",
+  "block.vaultcraft.warehouse_treading": "Warehouse Treading",
+  "block.vaultcraft.warehouse_walling": "Warehouse Walling",
 
+  "block.vaultcraft.bauxite_ore": "Bauxite Ore",
   "block.vaultcraft.silver_ore": "Silver Ore",
   "block.vaultcraft.ultracite_ore": "Ultracite Ore",
   "block.vaultcraft.uranium_ore": "Uranium Ore",
+  "block.vaultcraft.deepslate_bauxite_ore": "Deepslate Bauxite Ore",
   "block.vaultcraft.deepslate_silver_ore": "Deepslate Silver Ore",
   "block.vaultcraft.deepslate_ultracite_ore": "Deepslate Ultracite Ore",
   "block.vaultcraft.deepslate_uranium_ore": "Deepslate Uranium Ore",
 
-  "creativetab.vc_building_blocks": "VC Building Blocks",
-  "creativetab.vc_ingredients": "VC Ingredients"
+  "creativetab.vc_blocks": "VC Blocks",
+  "creativetab.vc_tools_n_utilities": "VC Tools & Utilities",
+  "creativetab.consumables": "VC Consumables",
+  "creativetab.vc_ingredients": "VC Ingredients",
+
+  "item.vaultcraft.camp.broken": "> C.A.M.P.™ offline. Maintenance Required."
 }

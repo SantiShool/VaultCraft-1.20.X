@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "vaultcraft:block/metal_brick_top",
+    "bottom": "vaultcraft:block/metal_brick_top",
+    "side": "vaultcraft:block/metal_brick"
+  }
+}

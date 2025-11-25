@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "key": {
+    "A": { "item": "vaultcraft:steel_ingot" }
+  },
+  "result": {
+    "item": "vaultcraft:metal_paneling"
+  }
+}

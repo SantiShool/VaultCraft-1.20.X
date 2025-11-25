@@ -1,14 +1,11 @@
 package net.squaants.vaultcraft.block;
 
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.*;
 import net.squaants.vaultcraft.VaultCraft;
 import net.squaants.vaultcraft.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -16,6 +13,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.squaants.vaultcraft.block.custom.RustingBlock;
 import net.squaants.vaultcraft.block.custom.Jukebox;
 
 import java.util.function.Supplier;
@@ -24,15 +22,52 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, VaultCraft.MOD_ID);
 
-    public static final RegistryObject<Block> METAL_WALL = registerBlock("metal_wall",
+    public static final RegistryObject<Block> METAL_BRICK = registerBlock("metal_brick",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)
                     .requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> METAL_ENGRAVED = registerBlock("metal_engraved",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                    .requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> METAL_PANELING = registerBlock("metal_paneling",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                    .requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> RUSTY_WAREHOUSE_PLATING = registerBlock("rusty_warehouse_plating",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> RUSTY_WAREHOUSE_TREADING = registerBlock("rusty_warehouse_treading",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> RUSTY_WAREHOUSE_WALLING = registerBlock("rusty_warehouse_walling",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> WAREHOUSE_PLATING = registerBlock("warehouse_plating",
+            () -> new RustingBlock(() -> ModBlocks.RUSTY_WAREHOUSE_PLATING.get(), BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> WAREHOUSE_TREADING = registerBlock("warehouse_treading",
+            () -> new RustingBlock(() -> ModBlocks.RUSTY_WAREHOUSE_TREADING.get(), BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> WAREHOUSE_WALLING = registerBlock("warehouse_walling",
+            () -> new RustingBlock(() -> ModBlocks.RUSTY_WAREHOUSE_WALLING.get(), BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+
 
     public static final RegistryObject<Block> JUKEBOX = registerBlock("jukebox",
             () -> new Jukebox(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD)
                     .strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
 
+
+    public static final RegistryObject<Block> BAUXITE_ORE = registerBlock("bauxite_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
 
     public static final RegistryObject<Block> SILVER_ORE = registerBlock("silver_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).instrument(NoteBlockInstrument.BASEDRUM)
@@ -47,6 +82,10 @@ public class ModBlocks {
                     .strength(3.0F, 3.0F).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
 
+
+    public static final RegistryObject<Block> DEEPSLATE_BAUXITE_ORE = registerBlock("deepslate_bauxite_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+                    .strength(4.5F, 3.0F).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "vaultcraft:item/fuel"
+    "layer0": "vaultcraft:item/oak_log"
   }
 }
