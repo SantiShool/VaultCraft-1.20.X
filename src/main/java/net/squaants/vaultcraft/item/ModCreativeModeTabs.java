@@ -19,7 +19,8 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.vc_building_blocks"))
                     .displayItems((displayParameters, output) -> {
 
-                        output.accept(ModBlocks.METAL_WALL.get());
+                        output.accept(ModBlocks.METAL_BLOCK.get());
+                        output.accept(ModBlocks.METAL_ENGRAVED.get());
 
 
                         output.accept(ModBlocks.SILVER_ORE.get());

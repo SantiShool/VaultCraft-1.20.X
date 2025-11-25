@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "end": "minecraft:block/metal_engraved_top",
+    "side": "minecraft:block/metal_engraved"
+  }
+}

@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "vaultcraft:metal_block",
+
     "vaultcraft:ultracite_ore",
     "vaultcraft:deepslate_ultracite_ore"
 

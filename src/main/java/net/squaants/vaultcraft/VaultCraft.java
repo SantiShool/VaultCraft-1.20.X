@@ -1,7 +1,6 @@
 package net.squaants.vaultcraft;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -10,7 +9,6 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -60,13 +58,24 @@ public class VaultCraft {
             event.accept(ModItems.DEATHCLAW_OMELETTE);
         }
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.METAL_WALL);
+            event.accept(ModBlocks.METAL_BLOCK);
+            event.accept(ModBlocks.METAL_ENGRAVED);
+
             event.accept(ModBlocks.SILVER_ORE);
             event.accept(ModBlocks.ULTRACITE_ORE);
             event.accept(ModBlocks.URANIUM_ORE);
             event.accept(ModBlocks.DEEPSLATE_SILVER_ORE);
             event.accept(ModBlocks.DEEPSLATE_ULTRACITE_ORE);
             event.accept(ModBlocks.DEEPSLATE_URANIUM_ORE);
+        }
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.SILVER_INGOT);
+            event.accept(ModItems.STEEL_INGOT);
+            event.accept(ModItems.RAW_SILVER);
+            event.accept(ModItems.RAW_ULTRACITE);
+            event.accept(ModItems.RAW_URANIUM);
+            event.accept(ModItems.FUEL);
+            event.accept(ModItems.DEATHCLAW_OMELETTE);
         }
     }
 

@@ -1,7 +1,9 @@
 {
   "replace": false,
   "values": [
-    "vaultcraft:metal_wall",
+    "vaultcraft:metal_block",
+    "vaultcraft:metal_engraved",
+
     "vaultcraft:silver_ore",
     "vaultcraft:ultracite_ore",
     "vaultcraft:uranium_ore",

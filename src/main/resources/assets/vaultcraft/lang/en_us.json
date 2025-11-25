@@ -11,7 +11,9 @@
 
   "item.vaultcraft.deathclaw_omelette": "Deathclaw Omelette",
 
-  "block.vaultcraft.metal_wall": "Metal Wall",
+  "block.vaultcraft.metal_block": "Metal Block",
+  "block.vaultcraft.metal_engraved": "Metal Engraved",
+
   "block.vaultcraft.jukebox": "Jukebox",
 
   "block.vaultcraft.silver_ore": "Silver Ore",

@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "vaultcraft:metal_wall",
     "vaultcraft:ultracite_ore",
     "vaultcraft:uranium_ore",
     "vaultcraft:deepslate_ultracite_ore",

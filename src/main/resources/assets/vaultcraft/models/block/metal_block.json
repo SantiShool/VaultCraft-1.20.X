@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "vaultcraft:block/metal_wall"
+    "all": "vaultcraft:block/metal_block"
   }
 }

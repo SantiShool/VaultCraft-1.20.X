@@ -24,9 +24,15 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, VaultCraft.MOD_ID);
 
-    public static final RegistryObject<Block> METAL_WALL = registerBlock("metal_wall",
+    public static final RegistryObject<Block> METAL_BLOCK = registerBlock("metal_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)
                     .requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> METAL_ENGRAVED = registerBlock("metal_engraved",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                    .requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
+
+
 
     public static final RegistryObject<Block> JUKEBOX = registerBlock("jukebox",
             () -> new Jukebox(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD)
