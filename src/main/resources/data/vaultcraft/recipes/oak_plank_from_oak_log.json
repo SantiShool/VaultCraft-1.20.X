@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AB",
+    "BA"
+  ],
+  "key": {
+    "A": { "item": "vaultcraft:steel_ingot" },
+    "B": { "tag": "vaultcraft:wooden_planks" }
+  },
+  "result": {
+    "item": "vaultcraft:warehouse_walling",
+    "count": 1
+  }
+}

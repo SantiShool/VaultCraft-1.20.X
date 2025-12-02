@@ -62,7 +62,22 @@ public class ModCreativeModeTabs {
                     .displayItems((displayParameters, output) -> {
                         output.accept(ModItems.FUEL.get());
 
+                        output.accept(ModItems.ACACIA_LOG.get());
+                        output.accept(ModItems.BIRCH_LOG.get());
+                        output.accept(ModItems.CHERRY_LOG.get());
+                        output.accept(ModItems.DARK_OAK_LOG.get());
+                        output.accept(ModItems.JUNGLE_LOG.get());
+                        output.accept(ModItems.MANGROVE_LOG.get());
                         output.accept(ModItems.OAK_LOG.get());
+                        output.accept(ModItems.SPRUCE_LOG.get());
+                        output.accept(ModItems.ACACIA_PLANK.get());
+                        output.accept(ModItems.BIRCH_PLANK.get());
+                        output.accept(ModItems.CHERRY_PLANK.get());
+                        output.accept(ModItems.DARK_OAK_PLANK.get());
+                        output.accept(ModItems.JUNGLE_PLANK.get());
+                        output.accept(ModItems.MANGROVE_PLANK.get());
+                        output.accept(ModItems.OAK_PLANK.get());
+                        output.accept(ModItems.SPRUCE_PLANK.get());
                         output.accept(ModItems.ALUMINUM_INGOT.get());
                         output.accept(ModItems.SILVER_INGOT.get());
                         output.accept(ModItems.STEEL_INGOT.get());

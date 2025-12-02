@@ -3,6 +3,9 @@
   "values": [
     "vaultcraft:metal_brick",
     "vaultcraft:metal_engraved",
-    "vaultcraft:metal_paneling"
+    "vaultcraft:metal_paneling",
+    "vaultcraft:warehouse_plating",
+    "vaultcraft:warehouse_treading",
+    "vaultcraft:warehouse_walling"
   ]
 }

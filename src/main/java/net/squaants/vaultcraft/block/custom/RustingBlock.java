@@ -11,27 +11,24 @@ import java.util.function.Supplier;
 
 public class RustingBlock extends Block {
 
+    // The rusty version this block should turn into
     private final Supplier<Block> rustyVariant;
 
     public RustingBlock(Supplier<Block> rustyVariant, BlockBehaviour.Properties properties) {
-        // enable random ticks so randomTick() actually runs
+        // enable random ticks so randomTick is called
         super(properties.randomTicks());
         this.rustyVariant = rustyVariant;
     }
 
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        // 1 in 20 chance per random tick to rust
-        if (random.nextInt(20) != 0) {
-            return;
+        // Chance for the block to rust each random tick
+        // tweak this number however you like (lower = more often)
+        if (random.nextInt(20) == 0) { // 1 in 20
+            Block rusty = rustyVariant.get();
+            if (rusty != null) {
+                level.setBlock(pos, rusty.defaultBlockState(), 3);
+            }
         }
-
-        Block rustyBlock = rustyVariant.get();
-        if (rustyBlock == null) {
-            return;
-        }
-
-        BlockState rustyState = rustyBlock.defaultBlockState();
-        level.setBlock(pos, rustyState, Block.UPDATE_ALL);
     }
 }

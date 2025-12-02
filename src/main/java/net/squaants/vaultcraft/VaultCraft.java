@@ -82,7 +82,22 @@ public class VaultCraft {
         }
 
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.ACACIA_LOG);
+            event.accept(ModItems.BIRCH_LOG);
+            event.accept(ModItems.CHERRY_LOG);
+            event.accept(ModItems.DARK_OAK_LOG);
+            event.accept(ModItems.JUNGLE_LOG);
+            event.accept(ModItems.MANGROVE_LOG);
             event.accept(ModItems.OAK_LOG);
+            event.accept(ModItems.SPRUCE_LOG);
+            event.accept(ModItems.ACACIA_PLANK);
+            event.accept(ModItems.BIRCH_PLANK);
+            event.accept(ModItems.CHERRY_PLANK);
+            event.accept(ModItems.DARK_OAK_PLANK);
+            event.accept(ModItems.JUNGLE_PLANK);
+            event.accept(ModItems.MANGROVE_PLANK);
+            event.accept(ModItems.OAK_PLANK);
+            event.accept(ModItems.SPRUCE_PLANK);
             event.accept(ModItems.ALUMINUM_INGOT);
             event.accept(ModItems.SILVER_INGOT);
             event.accept(ModItems.STEEL_INGOT);

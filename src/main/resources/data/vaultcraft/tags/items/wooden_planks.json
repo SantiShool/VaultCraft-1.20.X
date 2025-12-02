@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "vaultcraft:acacia_plank",
+    "vaultcraft:birch_plank",
+    "vaultcraft:cherry_plank",
+    "vaultcraft:dark_oak_plank",
+    "vaultcraft:jungle_plank",
+    "vaultcraft:oak_plank",
+    "vaultcraft:spruce_plank"
+  ]
+}

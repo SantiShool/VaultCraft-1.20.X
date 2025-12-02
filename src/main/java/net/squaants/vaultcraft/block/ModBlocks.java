@@ -23,40 +23,40 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, VaultCraft.MOD_ID);
 
     public static final RegistryObject<Block> METAL_BRICK = registerBlock("metal_brick",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)
-                    .requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                    .requiresCorrectToolForDrops().strength(-1.0F, 6.0F).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> METAL_ENGRAVED = registerBlock("metal_engraved",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)
-                    .requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                    .requiresCorrectToolForDrops().strength(-1.0F, 6.0F).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> METAL_PANELING = registerBlock("metal_paneling",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)
-                    .requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
+                    .requiresCorrectToolForDrops().strength(-1.0F, 6.0F).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> RUSTY_WAREHOUSE_PLATING = registerBlock("rusty_warehouse_plating",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+                    .requiresCorrectToolForDrops().strength(3.0F, 2.0F).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> RUSTY_WAREHOUSE_TREADING = registerBlock("rusty_warehouse_treading",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+                    .requiresCorrectToolForDrops().strength(3.0F, 2.0F).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> RUSTY_WAREHOUSE_WALLING = registerBlock("rusty_warehouse_walling",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+                    .requiresCorrectToolForDrops().strength(3.0F, 2.0F).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> WAREHOUSE_PLATING = registerBlock("warehouse_plating",
             () -> new RustingBlock(() -> ModBlocks.RUSTY_WAREHOUSE_PLATING.get(), BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+                    .requiresCorrectToolForDrops().strength(-1.0F, 4.0F).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> WAREHOUSE_TREADING = registerBlock("warehouse_treading",
             () -> new RustingBlock(() -> ModBlocks.RUSTY_WAREHOUSE_TREADING.get(), BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+                    .requiresCorrectToolForDrops().strength(-1.0F, 4.0F).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> WAREHOUSE_WALLING = registerBlock("warehouse_walling",
             () -> new RustingBlock(() -> ModBlocks.RUSTY_WAREHOUSE_WALLING.get(), BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+                    .requiresCorrectToolForDrops().strength(-1.0F, 4.0F).sound(SoundType.METAL)));
 
 
     public static final RegistryObject<Block> JUKEBOX = registerBlock("jukebox",
