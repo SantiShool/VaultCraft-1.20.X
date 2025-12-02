@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "vaultcraft:warehouse_treading"
+    }
+  ],
+  "result": {
+    "item": "vaultcraft:steel_ingot",
+    "count": 2
+  }
+}
