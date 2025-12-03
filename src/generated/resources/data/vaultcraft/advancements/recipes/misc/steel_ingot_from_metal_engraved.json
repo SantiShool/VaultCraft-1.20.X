@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_metal_engraved": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "vaultcraft:metal_engraved"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vaultcraft:steel_ingot_from_metal_engraved"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_metal_engraved",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vaultcraft:steel_ingot_from_metal_engraved"
+    ]
+  },
+  "sends_telemetry_event": false
+}

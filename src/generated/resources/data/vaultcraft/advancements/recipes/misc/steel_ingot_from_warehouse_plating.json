@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vaultcraft:steel_ingot_from_warehouse_plating"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warehouse_plating": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "vaultcraft:warehouse_plating"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_warehouse_plating",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vaultcraft:steel_ingot_from_warehouse_plating"
+    ]
+  },
+  "sends_telemetry_event": false
+}
