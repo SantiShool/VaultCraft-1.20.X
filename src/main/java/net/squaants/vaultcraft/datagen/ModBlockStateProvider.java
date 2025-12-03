@@ -1,4 +1,48 @@
 package net.squaants.vaultcraft.datagen;
 
-public class ModBlockStateProvider {
+import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
+import net.squaants.vaultcraft.VaultCraft;
+import net.squaants.vaultcraft.block.ModBlocks;
+
+public class ModBlockStateProvider extends BlockStateProvider {
+    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+        super(output, VaultCraft.MOD_ID, exFileHelper);
+    }
+
+    @Override
+    protected void registerStatesAndModels() {
+        // Full cube blocks – same pattern as in the course repo (blockWithItem)
+        blockWithItem(ModBlocks.METAL_BRICK);
+        blockWithItem(ModBlocks.METAL_ENGRAVED);
+        blockWithItem(ModBlocks.METAL_PANELING);
+
+        blockWithItem(ModBlocks.RUSTY_WAREHOUSE_PLATING);
+        blockWithItem(ModBlocks.RUSTY_WAREHOUSE_TREADING);
+        blockWithItem(ModBlocks.RUSTY_WAREHOUSE_WALLING);
+
+        blockWithItem(ModBlocks.WAREHOUSE_PLATING);
+        blockWithItem(ModBlocks.WAREHOUSE_TREADING);
+        blockWithItem(ModBlocks.WAREHOUSE_WALLING);
+
+        blockWithItem(ModBlocks.JUKEBOX);
+
+        // Ores
+        blockWithItem(ModBlocks.BAUXITE_ORE);
+        blockWithItem(ModBlocks.SILVER_ORE);
+        blockWithItem(ModBlocks.ULTRACITE_ORE);
+        blockWithItem(ModBlocks.URANIUM_ORE);
+
+        blockWithItem(ModBlocks.DEEPSLATE_BAUXITE_ORE);
+        blockWithItem(ModBlocks.DEEPSLATE_SILVER_ORE);
+        blockWithItem(ModBlocks.DEEPSLATE_ULTRACITE_ORE);
+        blockWithItem(ModBlocks.DEEPSLATE_URANIUM_ORE);
+    }
+
+    private void blockWithItem(RegistryObject<Block> block) {
+        simpleBlockWithItem(block.get(), cubeAll(block.get()));
+    }
 }
