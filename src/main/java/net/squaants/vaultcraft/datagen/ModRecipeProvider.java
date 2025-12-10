@@ -1,6 +1,5 @@
 package net.squaants.vaultcraft.datagen;
 
-import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -9,6 +8,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -64,38 +64,56 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(writer, VaultCraft.MOD_ID + ":steel_ingot_from_blasting_iron_ingot");
 
 
-        // ===== SHAPED: STEEL → DECORATIVE BLOCKS =====
+        // ===== METAL PANELING (camp core, steel only) =====
 
-        // metal_paneling.json
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.METAL_PANELING.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.METAL_PANELING.get(), 4)
                 .pattern("SS")
                 .pattern("SS")
                 .define('S', ModItems.STEEL_INGOT.get())
                 .unlockedBy("has_steel_ingot", has(ModItems.STEEL_INGOT.get()))
-                .save(writer);
+                .save(writer, VaultCraft.MOD_ID + ":metal_paneling_from_steel");
 
-        // warehouse_walling.json  (FIXED: now uses default registry ID)
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.WAREHOUSE_WALLING.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.METAL_PANELING_STAIRS.get(), 4)
+                .pattern("P  ")
+                .pattern("PP ")
+                .pattern("PPP")
+                .define('P', ModBlocks.METAL_PANELING.get())
+                .unlockedBy("has_metal_paneling", has(ModBlocks.METAL_PANELING.get()))
+                .save(writer, VaultCraft.MOD_ID + ":metal_paneling_stairs_from_metal_paneling");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.METAL_PANELING_SLAB.get(), 6)
+                .pattern("PPP")
+                .define('P', ModBlocks.METAL_PANELING.get())
+                .unlockedBy("has_metal_paneling", has(ModBlocks.METAL_PANELING.get()))
+                .save(writer, VaultCraft.MOD_ID + ":metal_paneling_slab_from_metal_paneling");
+
+
+        // ===== WAREHOUSE WALLING (camp core, wood+steel mix) =====
+        // Tag: vaultcraft:wooden_planks used for W
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAREHOUSE_WALLING.get(), 4)
                 .pattern("SS")
-                .pattern("SS")
+                .pattern("WW")
                 .define('S', ModItems.STEEL_INGOT.get())
-                .unlockedBy("has_steel_ingot",
-                        inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.STEEL_INGOT.get()).build()))
-                .save(writer);
+                .define('W', ItemTags.create(new ResourceLocation("vaultcraft", "wooden_planks")))
+                .unlockedBy("has_steel_ingot", has(ModItems.STEEL_INGOT.get()))
+                .save(writer, VaultCraft.MOD_ID + ":warehouse_walling_from_steel_and_planks");
 
-        // Alternate warehouse_walling recipe (steel + any vaultcraft:wooden_planks)
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.WAREHOUSE_WALLING.get())
-                .pattern("AB")
-                .pattern("BA")
-                .define('A', ModItems.STEEL_INGOT.get())
-                .define('B', Ingredient.of(
-                        net.minecraft.tags.ItemTags.create(
-                                new ResourceLocation("vaultcraft", "wooden_planks")
-                        )))
-                .unlockedBy("has_steel_or_planks",
-                        inventoryTrigger(ItemPredicate.Builder.item()
-                                .of(ModItems.STEEL_INGOT.get()).build()))
-                .save(writer, VaultCraft.MOD_ID + ":warehouse_walling_from_planks");
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAREHOUSE_WALLING_STAIRS.get(), 4)
+                .pattern("S  ")
+                .pattern("WS ")
+                .pattern("WWS")
+                .define('S', ModItems.STEEL_INGOT.get())
+                .define('W', ItemTags.create(new ResourceLocation("vaultcraft", "wooden_planks")))
+                .unlockedBy("has_warehouse_walling", has(ModBlocks.WAREHOUSE_WALLING.get()))
+                .save(writer, VaultCraft.MOD_ID + ":warehouse_walling_stairs_from_steel_and_planks");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAREHOUSE_WALLING_SLAB.get(), 6)
+                .pattern("SWS")
+                .define('S', ModItems.STEEL_INGOT.get())
+                .define('W', ItemTags.create(new ResourceLocation("vaultcraft", "wooden_planks")))
+                .unlockedBy("has_warehouse_walling", has(ModBlocks.WAREHOUSE_WALLING.get()))
+                .save(writer, VaultCraft.MOD_ID + ":warehouse_walling_slab_from_steel_and_planks");
 
 
         // ===== SHAPELESS: DECORATIVE BLOCKS → STEEL SCRAP =====

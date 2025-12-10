@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.squaants.vaultcraft.block.ModBlocks;
-
+import net.squaants.vaultcraft.util.ModTags;
 
 import java.util.List;
 
@@ -23,11 +23,11 @@ public class CampItem extends Item {
     private static final int MAX_USES = 128;
 
     public CampItem(Properties properties) {
-        // IMPORTANT: do NOT call stacksTo() on a damageable item in 1.20.1
-        // That causes "Unable to have damage AND stack."
+        // Do NOT call stacksTo() on a damageable item in 1.20.1
         super(properties.durability(MAX_USES));
     }
 
+    // Variant groups for cycling
     private static final List<Block> METAL_VARIANTS = List.of(
             ModBlocks.METAL_BRICK.get(),
             ModBlocks.METAL_ENGRAVED.get(),
@@ -68,45 +68,75 @@ public class CampItem extends Item {
         );
     }
 
-    // RIGHT-CLICK: cycle variant within its own group
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         Player player = context.getPlayer();
         ItemStack stack = context.getItemInHand();
 
-        if (player != null && isCampBroken(stack)) {
+        if (player == null) {
+            return InteractionResult.PASS;
+        }
+
+        BlockPos pos = context.getClickedPos();
+        BlockState state = level.getBlockState(pos);
+        Block rawBlock = state.getBlock();
+        Block normalizedBlock = normalizeBlock(rawBlock);
+
+        // 1) Only handle blocks that are tagged as CAMP blocks
+        if (!state.is(ModTags.Blocks.CAMP_BLOCKS)) {
+            return InteractionResult.PASS;
+        }
+
+        // 2) If the CAMP device is broken, complain and do nothing
+        if (isCampBroken(stack)) {
             if (!level.isClientSide) {
                 sendBrokenMessage(player);
             }
             return InteractionResult.FAIL;
         }
 
-        BlockPos pos = context.getClickedPos();
-        BlockState state = level.getBlockState(pos);
-        Block rawBlock = state.getBlock();
-        Block block = normalizeBlock(rawBlock);
+        // ========== SHIFT + RIGHT CLICK: PICK UP BLOCK ==========
+        if (player.isShiftKeyDown()) {
+            if (!level.isClientSide) {
+                // Remove block with no vanilla drops
+                level.destroyBlock(pos, false, player);
 
-        List<Block> group = getVariantGroup(block);
+                // Drop the actual placed block (rusty or not)
+                ItemStack drop = new ItemStack(rawBlock.asItem());
+                if (!player.getInventory().add(drop)) {
+                    player.drop(drop, false);
+                }
+
+                level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.6f, 1.0f);
+
+                // Durability -1
+                stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(p.getUsedItemHand()));
+            }
+
+            return InteractionResult.sidedSuccess(level.isClientSide());
+        }
+
+        // ========== NORMAL RIGHT CLICK: CYCLE VARIANT ==========
+        List<Block> group = getVariantGroup(normalizedBlock);
         if (group == null) {
-            // Block is not in any CAMP group, ignore
+            // Tagged as CAMP block but not part of a variant cycle (e.g., jukebox)
             return InteractionResult.PASS;
         }
 
-        int index = group.indexOf(block);
+        int index = group.indexOf(normalizedBlock);
         if (index < 0) {
-            // Shouldn't happen, but guards against weirdness
             return InteractionResult.PASS;
         }
 
         Block next = group.get((index + 1) % group.size());
         BlockState newState = next.defaultBlockState();
 
-        // Preserve pillar orientation if needed
-        if (next instanceof RotatedPillarBlock) {
+        // Preserve pillar orientation if this is a pillar-style block
+        if (state.hasProperty(RotatedPillarBlock.AXIS) && newState.hasProperty(RotatedPillarBlock.AXIS)) {
             newState = newState.setValue(
                     RotatedPillarBlock.AXIS,
-                    context.getClickedFace().getAxis()
+                    state.getValue(RotatedPillarBlock.AXIS)
             );
         }
 
@@ -116,49 +146,5 @@ public class CampItem extends Item {
         }
 
         return InteractionResult.sidedSuccess(level.isClientSide());
-    }
-
-    // LEFT-CLICK: instant pickup + durability loss
-    @Override
-    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
-        Level level = player.level();
-        BlockState state = level.getBlockState(pos);
-        Block rawBlock = state.getBlock();
-        Block block = normalizeBlock(rawBlock);
-
-        boolean isHandled =
-                METAL_VARIANTS.contains(block) ||
-                        WAREHOUSE_VARIANTS.contains(block);
-
-        if (!isHandled) {
-            // Let normal mining happen
-            return false;
-        }
-
-        if (isCampBroken(stack)) {
-            if (!level.isClientSide) {
-                sendBrokenMessage(player);
-            }
-            // Cancel normal mining so they can't cheese it
-            return true;
-        }
-
-        if (!level.isClientSide) {
-            // Instantly break the block without normal drops
-            level.destroyBlock(pos, false, player);
-
-            // Drop whatever block was actually there (rusty or not)
-            ItemStack drop = new ItemStack(rawBlock.asItem());
-            if (!player.getInventory().add(drop)) {
-                player.drop(drop, false);
-            }
-
-            level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.6f, 1f);
-
-            // Lose 1 durability per block picked up
-            stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(p.getUsedItemHand()));
-        }
-
-        return true; // cancel vanilla breaking
     }
 }

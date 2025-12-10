@@ -20,12 +20,36 @@ public class ModCreativeModeTabs {
                     .displayItems((displayParameters, output) -> {
 
                         output.accept(ModBlocks.JUKEBOX.get());
+
                         output.accept(ModBlocks.METAL_BRICK.get());
                         output.accept(ModBlocks.METAL_ENGRAVED.get());
                         output.accept(ModBlocks.METAL_PANELING.get());
+                        output.accept(ModBlocks.METAL_BRICK_STAIRS.get());
+                        output.accept(ModBlocks.METAL_BRICK_SLAB.get());
+                        output.accept(ModBlocks.METAL_ENGRAVED_STAIRS.get());
+                        output.accept(ModBlocks.METAL_ENGRAVED_SLAB.get());
+                        output.accept(ModBlocks.METAL_PANELING_STAIRS.get());
+                        output.accept(ModBlocks.METAL_PANELING_SLAB.get());
+
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_PLATING.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_TREADING.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_WALLING.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_PLATING_STAIRS.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_PLATING_SLAB.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_TREADING_STAIRS.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_TREADING_SLAB.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_WALLING_STAIRS.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_WALLING_SLAB.get());
+
                         output.accept(ModBlocks.WAREHOUSE_PLATING.get());
                         output.accept(ModBlocks.WAREHOUSE_TREADING.get());
                         output.accept(ModBlocks.WAREHOUSE_WALLING.get());
+                        output.accept(ModBlocks.WAREHOUSE_PLATING_STAIRS.get());
+                        output.accept(ModBlocks.WAREHOUSE_PLATING_SLAB.get());
+                        output.accept(ModBlocks.WAREHOUSE_TREADING_STAIRS.get());
+                        output.accept(ModBlocks.WAREHOUSE_TREADING_SLAB.get());
+                        output.accept(ModBlocks.WAREHOUSE_WALLING_STAIRS.get());
+                        output.accept(ModBlocks.WAREHOUSE_WALLING_SLAB.get());
 
                         output.accept(ModBlocks.BAUXITE_ORE.get());
                         output.accept(ModBlocks.SILVER_ORE.get());

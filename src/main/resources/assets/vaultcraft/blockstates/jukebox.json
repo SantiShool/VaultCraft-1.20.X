@@ -1,7 +1,5 @@
 {
   "variants": {
-    "": {
-      "model": "vaultcraft:block/jukebox"
-    }
+    "": { "model": "vaultcraft:block/jukebox" }
   }
 }

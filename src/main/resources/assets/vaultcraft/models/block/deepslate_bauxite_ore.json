@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "vaultcraft:block/deepslate_bauxite_ore"
-  }
-}

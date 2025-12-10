@@ -23,15 +23,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         // Everything here is mineable with a pickaxe
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-                ModBlocks.METAL_BRICK.get(),
-                ModBlocks.METAL_ENGRAVED.get(),
-                ModBlocks.METAL_PANELING.get(),
-                ModBlocks.RUSTY_WAREHOUSE_PLATING.get(),
-                ModBlocks.RUSTY_WAREHOUSE_TREADING.get(),
-                ModBlocks.RUSTY_WAREHOUSE_WALLING.get(),
-                ModBlocks.WAREHOUSE_PLATING.get(),
-                ModBlocks.WAREHOUSE_TREADING.get(),
-                ModBlocks.WAREHOUSE_WALLING.get(),
                 ModBlocks.JUKEBOX.get(),
                 ModBlocks.BAUXITE_ORE.get(),
                 ModBlocks.SILVER_ORE.get(),
@@ -43,7 +34,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.DEEPSLATE_URANIUM_ORE.get()
         );
 
-        // If you want, we can also move your camp_valuables.json to datagen here later.
+        // If you want, we can also move your camp_blocks.json to datagen here later.
     }
 
     @Override
