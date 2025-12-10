@@ -112,11 +112,8 @@ public class VaultCraft {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
-                // translucent so the glass looks right
-                ItemBlockRenderTypes.setRenderLayer(
-                        ModBlocks.JUKEBOX.get(),
-                        RenderType.translucent()
-                );
+                // Render with transparency so the glass works
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.JUKEBOX.get(), RenderType.translucent());
             });
         }
     }
