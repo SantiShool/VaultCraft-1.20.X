@@ -25,23 +25,42 @@
   "item.vaultcraft.steel_ingot": "Steel Ingot",
   "item.vaultcraft.raw_bauxite": "Raw Bauxite",
   "item.vaultcraft.raw_silver": "Raw Silver",
-  "item.vaultcraft.raw_ultracite": "Raw Ultracite",
-  "item.vaultcraft.raw_uranium": "Raw Uranium",
+  "item.vaultcraft.ultracite": "Ultracite",
+  "item.vaultcraft.uranium": "Uranium",
 
   "item.vaultcraft.deathclaw_omelette": "Deathclaw Omelette",
 
   "block.vaultcraft.jukebox": "Jukebox",
+
   "block.vaultcraft.metal_brick": "Metal Brick",
   "block.vaultcraft.metal_engraved": "Metal Engraved",
   "block.vaultcraft.metal_paneling": "Metal Paneling",
-  "block.vaultcraft.metal_paneling_stairs": "Metal Stairs",
-  "block.vaultcraft.metal_paneling_slab": "Metal Slab",
   "block.vaultcraft.rusty_warehouse_plating": "Rusty Warehouse Plating",
   "block.vaultcraft.rusty_warehouse_treading": "Rusty Warehouse Treading",
   "block.vaultcraft.rusty_warehouse_walling": "Rusty Warehouse Walling",
   "block.vaultcraft.warehouse_plating": "Warehouse Plating",
   "block.vaultcraft.warehouse_treading": "Warehouse Treading",
   "block.vaultcraft.warehouse_walling": "Warehouse Walling",
+
+  "block.vaultcraft.metal_brick_stairs": "Metal Brick Stairs",
+  "block.vaultcraft.metal_engraved_stairs": "Metal Engraved Stairs",
+  "block.vaultcraft.metal_paneling_stairs": "Metal Paneling Stairs",
+  "block.vaultcraft.rusty_warehouse_plating_stairs": "Rusty Warehouse Plating Stairs",
+  "block.vaultcraft.rusty_warehouse_treading_stairs": "Rusty Warehouse Treading Stairs",
+  "block.vaultcraft.rusty_warehouse_walling_stairs": "Rusty Warehouse Walling Stairs",
+  "block.vaultcraft.warehouse_plating_stairs": "Warehouse Plating Stairs",
+  "block.vaultcraft.warehouse_treading_stairs": "Warehouse Treading Stairs",
+  "block.vaultcraft.warehouse_walling_stairs": "Warehouse Walling Stairs",
+
+  "block.vaultcraft.metal_brick_slab": "Metal Brick Slab",
+  "block.vaultcraft.metal_engraved_slab": "Metal Engraved Slab",
+  "block.vaultcraft.metal_paneling_slab": "Metal Paneling Slab",
+  "block.vaultcraft.rusty_warehouse_plating_slab": "Rusty Warehouse Plating Slab",
+  "block.vaultcraft.rusty_warehouse_treading_slab": "Rusty Warehouse Treading Slab",
+  "block.vaultcraft.rusty_warehouse_walling_slab": "Rusty Warehouse Walling Slab",
+  "block.vaultcraft.warehouse_plating_slab": "Warehouse Plating Slab",
+  "block.vaultcraft.warehouse_treading_slab": "Warehouse Treading Slab",
+  "block.vaultcraft.warehouse_walling_slab": "Warehouse Walling Slab",
 
   "block.vaultcraft.bauxite_ore": "Bauxite Ore",
   "block.vaultcraft.silver_ore": "Silver Ore",
@@ -57,5 +76,5 @@
   "creativetab.consumables": "VC Consumables",
   "creativetab.vc_ingredients": "VC Ingredients",
 
-  "item.vaultcraft.camp.broken": "> C.A.M.P.™ offline. Maintenance Required."
+  "container.vaultcraft.jukebox": "Jukebox"
 }

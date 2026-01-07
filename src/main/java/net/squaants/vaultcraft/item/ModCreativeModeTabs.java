@@ -107,8 +107,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.STEEL_INGOT.get());
                         output.accept(ModItems.RAW_BAUXITE.get());
                         output.accept(ModItems.RAW_SILVER.get());
-                        output.accept(ModItems.RAW_ULTRACITE.get());
-                        output.accept(ModItems.RAW_URANIUM.get());
+                        output.accept(ModItems.ULTRACITE.get());
+                        output.accept(ModItems.URANIUM.get());
 
                     }).build());
 

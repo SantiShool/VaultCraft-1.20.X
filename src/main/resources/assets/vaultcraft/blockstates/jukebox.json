@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": { "model": "vaultcraft:block/jukebox" }
+    "facing=north": { "model": "vaultcraft:block/jukebox", "y": 0 },
+    "facing=east":  { "model": "vaultcraft:block/jukebox", "y": 90 },
+    "facing=south": { "model": "vaultcraft:block/jukebox", "y": 180 },
+    "facing=west":  { "model": "vaultcraft:block/jukebox", "y": 270 }
   }
 }

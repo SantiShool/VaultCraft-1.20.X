@@ -26,8 +26,8 @@ public class VaultCraft {
     public static final String MOD_ID = "vaultcraft";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public VaultCraft(FMLJavaModLoadingContext context) {
-        IEventBus modEventBus = context.getModEventBus();
+    public VaultCraft() {
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModCreativeModeTabs.register(modEventBus);
 
@@ -46,10 +46,6 @@ public class VaultCraft {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            // (empty for now)
-        }
-
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
             event.accept(ModBlocks.BAUXITE_ORE);
             event.accept(ModBlocks.SILVER_ORE);
@@ -59,18 +55,6 @@ public class VaultCraft {
             event.accept(ModBlocks.DEEPSLATE_SILVER_ORE);
             event.accept(ModBlocks.DEEPSLATE_ULTRACITE_ORE);
             event.accept(ModBlocks.DEEPSLATE_URANIUM_ORE);
-        }
-
-        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            // (empty for now)
-        }
-
-        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            // (empty for now)
-        }
-
-        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            // (empty for now)
         }
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
@@ -97,8 +81,8 @@ public class VaultCraft {
             event.accept(ModItems.STEEL_INGOT);
             event.accept(ModItems.RAW_BAUXITE);
             event.accept(ModItems.RAW_SILVER);
-            event.accept(ModItems.RAW_ULTRACITE);
-            event.accept(ModItems.RAW_URANIUM);
+            event.accept(ModItems.ULTRACITE);
+            event.accept(ModItems.URANIUM);
         }
     }
 
@@ -109,11 +93,14 @@ public class VaultCraft {
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
-                // Render with transparency so the glass works
+                // Only keep this if your jukebox texture uses transparent pixels.
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.JUKEBOX.get(), RenderType.translucent());
+
+                // No MenuScreens.register here anymore because we are using vanilla ChestMenu.
             });
         }
     }

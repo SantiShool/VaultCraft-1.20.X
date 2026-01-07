@@ -45,8 +45,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         // Raw ores
         simpleItem(ModItems.RAW_BAUXITE);
         simpleItem(ModItems.RAW_SILVER);
-        simpleItem(ModItems.RAW_ULTRACITE);
-        simpleItem(ModItems.RAW_URANIUM);
+        simpleItem(ModItems.ULTRACITE);
+        simpleItem(ModItems.URANIUM);
 
         // Other items
         simpleItem(ModItems.DEATHCLAW_OMELETTE);

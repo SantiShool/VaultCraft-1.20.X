@@ -1,144 +1,112 @@
 package net.squaants.vaultcraft.item.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.squaants.vaultcraft.block.ModBlocks;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.squaants.vaultcraft.VaultCraft;
 import net.squaants.vaultcraft.util.ModTags;
 
 import java.util.List;
 
 public class CampItem extends Item {
 
-    private static final int MAX_USES = 128;
-
     public CampItem(Properties properties) {
-        // Do NOT call stacksTo() on a damageable item in 1.20.1
-        super(properties.durability(MAX_USES));
+        super(properties);
     }
 
-    // Variant groups for cycling
-    private static final List<Block> METAL_VARIANTS = List.of(
-            ModBlocks.METAL_BRICK.get(),
-            ModBlocks.METAL_ENGRAVED.get(),
-            ModBlocks.METAL_PANELING.get()
+    // EXACT families based on your registry names
+    private static final List<String> METAL = List.of(
+            "metal_brick", "metal_engraved", "metal_paneling"
+    );
+    private static final List<String> METAL_STAIRS = List.of(
+            "metal_brick_stairs", "metal_engraved_stairs", "metal_paneling_stairs"
+    );
+    private static final List<String> METAL_SLAB = List.of(
+            "metal_brick_slab", "metal_engraved_slab", "metal_paneling_slab"
     );
 
-    private static final List<Block> WAREHOUSE_VARIANTS = List.of(
-            ModBlocks.WAREHOUSE_PLATING.get(),
-            ModBlocks.WAREHOUSE_TREADING.get(),
-            ModBlocks.WAREHOUSE_WALLING.get()
+    private static final List<String> WAREHOUSE = List.of(
+            "warehouse_plating", "warehouse_treading", "warehouse_walling"
+    );
+    private static final List<String> WAREHOUSE_STAIRS = List.of(
+            "warehouse_plating_stairs", "warehouse_treading_stairs", "warehouse_walling_stairs"
+    );
+    private static final List<String> WAREHOUSE_SLAB = List.of(
+            "warehouse_plating_slab", "warehouse_treading_slab", "warehouse_walling_slab"
     );
 
-    /**
-     * Treat rusty warehouse blocks as their clean versions so cycling works
-     * no matter which one is currently placed.
-     */
-    private static Block normalizeBlock(Block block) {
-        if (block == ModBlocks.RUSTY_WAREHOUSE_PLATING.get())  return ModBlocks.WAREHOUSE_PLATING.get();
-        if (block == ModBlocks.RUSTY_WAREHOUSE_TREADING.get()) return ModBlocks.WAREHOUSE_TREADING.get();
-        if (block == ModBlocks.RUSTY_WAREHOUSE_WALLING.get())  return ModBlocks.WAREHOUSE_WALLING.get();
-        return block;
-    }
+    private static final List<String> RUSTY_WAREHOUSE = List.of(
+            "rusty_warehouse_plating", "rusty_warehouse_treading", "rusty_warehouse_walling"
+    );
+    private static final List<String> RUSTY_WAREHOUSE_STAIRS = List.of(
+            "rusty_warehouse_plating_stairs", "rusty_warehouse_treading_stairs", "rusty_warehouse_walling_stairs"
+    );
+    private static final List<String> RUSTY_WAREHOUSE_SLAB = List.of(
+            "rusty_warehouse_plating_slab", "rusty_warehouse_treading_slab", "rusty_warehouse_walling_slab"
+    );
 
-    private static List<Block> getVariantGroup(Block block) {
-        if (METAL_VARIANTS.contains(block)) return METAL_VARIANTS;
-        if (WAREHOUSE_VARIANTS.contains(block)) return WAREHOUSE_VARIANTS;
+    private static List<String> familyFor(String path) {
+        if (METAL.contains(path)) return METAL;
+        if (METAL_STAIRS.contains(path)) return METAL_STAIRS;
+        if (METAL_SLAB.contains(path)) return METAL_SLAB;
+
+        if (WAREHOUSE.contains(path)) return WAREHOUSE;
+        if (WAREHOUSE_STAIRS.contains(path)) return WAREHOUSE_STAIRS;
+        if (WAREHOUSE_SLAB.contains(path)) return WAREHOUSE_SLAB;
+
+        if (RUSTY_WAREHOUSE.contains(path)) return RUSTY_WAREHOUSE;
+        if (RUSTY_WAREHOUSE_STAIRS.contains(path)) return RUSTY_WAREHOUSE_STAIRS;
+        if (RUSTY_WAREHOUSE_SLAB.contains(path)) return RUSTY_WAREHOUSE_SLAB;
+
         return null;
-    }
-
-    private boolean isCampBroken(ItemStack stack) {
-        return stack.getDamageValue() >= stack.getMaxDamage();
-    }
-
-    private void sendBrokenMessage(Player player) {
-        player.displayClientMessage(
-                Component.literal("C.A.M.P.\u2122 offline. Please perform maintenance."),
-                true
-        );
     }
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         Player player = context.getPlayer();
-        ItemStack stack = context.getItemInHand();
-
-        if (player == null) {
-            return InteractionResult.PASS;
-        }
+        if (player == null) return InteractionResult.PASS;
 
         BlockPos pos = context.getClickedPos();
         BlockState state = level.getBlockState(pos);
-        Block rawBlock = state.getBlock();
-        Block normalizedBlock = normalizeBlock(rawBlock);
 
-        // 1) Only handle blocks that are tagged as CAMP blocks
+        // Gate by tag (make sure your stairs/slabs are included in camp_blocks.json)
         if (!state.is(ModTags.Blocks.CAMP_BLOCKS)) {
             return InteractionResult.PASS;
         }
 
-        // 2) If the CAMP device is broken, complain and do nothing
-        if (isCampBroken(stack)) {
-            if (!level.isClientSide) {
-                sendBrokenMessage(player);
-            }
-            return InteractionResult.FAIL;
-        }
+        ResourceLocation key = ForgeRegistries.BLOCKS.getKey(state.getBlock());
+        if (key == null) return InteractionResult.PASS;
 
-        // ========== SHIFT + RIGHT CLICK: PICK UP BLOCK ==========
-        if (player.isShiftKeyDown()) {
-            if (!level.isClientSide) {
-                // Remove block with no vanilla drops
-                level.destroyBlock(pos, false, player);
-
-                // Drop the actual placed block (rusty or not)
-                ItemStack drop = new ItemStack(rawBlock.asItem());
-                if (!player.getInventory().add(drop)) {
-                    player.drop(drop, false);
-                }
-
-                level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.6f, 1.0f);
-
-                // Durability -1
-                stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(p.getUsedItemHand()));
-            }
-
-            return InteractionResult.sidedSuccess(level.isClientSide());
-        }
-
-        // ========== NORMAL RIGHT CLICK: CYCLE VARIANT ==========
-        List<Block> group = getVariantGroup(normalizedBlock);
-        if (group == null) {
-            // Tagged as CAMP block but not part of a variant cycle (e.g., jukebox)
+        // Only our mod blocks
+        if (!VaultCraft.MOD_ID.equals(key.getNamespace())) {
             return InteractionResult.PASS;
         }
 
-        int index = group.indexOf(normalizedBlock);
-        if (index < 0) {
-            return InteractionResult.PASS;
-        }
+        String path = key.getPath();
 
-        Block next = group.get((index + 1) % group.size());
-        BlockState newState = next.defaultBlockState();
+        List<String> family = familyFor(path);
+        if (family == null) return InteractionResult.PASS;
 
-        // Preserve pillar orientation if this is a pillar-style block
-        if (state.hasProperty(RotatedPillarBlock.AXIS) && newState.hasProperty(RotatedPillarBlock.AXIS)) {
-            newState = newState.setValue(
-                    RotatedPillarBlock.AXIS,
-                    state.getValue(RotatedPillarBlock.AXIS)
-            );
-        }
+        int idx = family.indexOf(path);
+        if (idx < 0) return InteractionResult.PASS;
+
+        String nextPath = family.get((idx + 1) % family.size());
+
+        Block nextBlock = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(VaultCraft.MOD_ID, nextPath));
+        if (nextBlock == null) return InteractionResult.PASS;
+
+        BlockState newState = copyCommonProperties(state, nextBlock.defaultBlockState());
 
         if (!level.isClientSide) {
             level.setBlock(pos, newState, 3);
@@ -146,5 +114,15 @@ public class CampItem extends Item {
         }
 
         return InteractionResult.sidedSuccess(level.isClientSide());
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private static BlockState copyCommonProperties(BlockState from, BlockState to) {
+        for (Property prop : from.getProperties()) {
+            if (to.hasProperty(prop)) {
+                to = to.setValue(prop, from.getValue(prop));
+            }
+        }
+        return to;
     }
 }

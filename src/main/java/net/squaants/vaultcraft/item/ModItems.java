@@ -8,7 +8,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.squaants.vaultcraft.item.custom.CampItem;
 import net.squaants.vaultcraft.item.custom.FuelItem;
-import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -56,17 +55,16 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAW_SILVER = ITEMS.register("raw_silver",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> RAW_ULTRACITE = ITEMS.register("raw_ultracite",
+    public static final RegistryObject<Item> ULTRACITE = ITEMS.register("raw_ultracite",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> RAW_URANIUM = ITEMS.register("raw_uranium",
+    public static final RegistryObject<Item> URANIUM = ITEMS.register("raw_uranium",
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> DEATHCLAW_OMELETTE = ITEMS.register("deathclaw_omelette",
             () -> new Item(new Item.Properties().food(ModFoodProperties.DEATHCLAW_OMELETTE)));
 
-    public static final RegistryObject<CampItem> CAMP = ITEMS.register(
-            "camp",
-            () -> new CampItem(new Item.Properties()));
+    public static final RegistryObject<CampItem> CAMP = ITEMS.register("camp",
+            () -> new CampItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> FUEL = ITEMS.register("fuel",
             () -> new FuelItem(new Item.Properties(),6000));
 

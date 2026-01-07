@@ -58,11 +58,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.SILVER_ORE.get(), block -> createOreDrop(ModBlocks.SILVER_ORE.get(), ModItems.RAW_SILVER.get()));
         this.add(ModBlocks.DEEPSLATE_SILVER_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_SILVER_ORE.get(), ModItems.RAW_SILVER.get()));
 
-        this.add(ModBlocks.ULTRACITE_ORE.get(), block -> createOreDrop(ModBlocks.ULTRACITE_ORE.get(), ModItems.RAW_ULTRACITE.get()));
-        this.add(ModBlocks.DEEPSLATE_ULTRACITE_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_ULTRACITE_ORE.get(), ModItems.RAW_ULTRACITE.get()));
+        this.add(ModBlocks.ULTRACITE_ORE.get(), block -> createOreDrop(ModBlocks.ULTRACITE_ORE.get(), ModItems.ULTRACITE.get()));
+        this.add(ModBlocks.DEEPSLATE_ULTRACITE_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_ULTRACITE_ORE.get(), ModItems.ULTRACITE.get()));
 
-        this.add(ModBlocks.URANIUM_ORE.get(), block -> createOreDrop(ModBlocks.URANIUM_ORE.get(), ModItems.RAW_URANIUM.get()));
-        this.add(ModBlocks.DEEPSLATE_URANIUM_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_URANIUM_ORE.get(), ModItems.RAW_URANIUM.get()));
+        this.add(ModBlocks.URANIUM_ORE.get(), block -> createOreDrop(ModBlocks.URANIUM_ORE.get(), ModItems.URANIUM.get()));
+        this.add(ModBlocks.DEEPSLATE_URANIUM_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_URANIUM_ORE.get(), ModItems.URANIUM.get()));
     }
 
     @Override

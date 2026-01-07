@@ -3,11 +3,11 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "jukebox_center",
-		"1": "jukebox_sides",
-		"2": "jukebox_details",
-		"3": "jukebox_glass",
-		"particle": "jukebox_center"
+		"0": "vaultcraft:block/jukebox_center",
+		"1": "vaultcraft:block/jukebox_sides",
+		"2": "vaultcraft:block/jukebox_details",
+		"3": "vaultcraft:block/jukebox_glass",
+		"particle": "vaultcraft:block/jukebox_center"
 	},
 	"elements": [
 		{
