@@ -24,116 +24,42 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, VaultCraft.MOD_ID);
 
-
-    public static final RegistryObject<Block> METAL_BRICK = registerBlock("metal_brick",
+    // METAL BLOCK
+    public static final RegistryObject<Block> METAL_BLOCK = registerBlock("metal_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .requiresCorrectToolForDrops().strength(-1.0F, 6.0F).sound(SoundType.METAL)));
+                    .requiresCorrectToolForDrops().strength(60.0F, 6.0F).sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> METAL_ENGRAVED = registerBlock("metal_engraved",
+    public static final RegistryObject<StairBlock> METAL_STAIRS = registerBlock("metal_stairs",
+                    () -> new StairBlock(() -> METAL_BLOCK.get().defaultBlockState(),
+                            BlockBehaviour.Properties.copy(METAL_BLOCK.get())));
+
+    public static final RegistryObject<SlabBlock> METAL_SLAB = registerBlock("metal_slab",
+                    () -> new SlabBlock(BlockBehaviour.Properties.copy(METAL_BLOCK.get())));
+
+
+    public static final RegistryObject<Block> RUSTY_WAREHOUSE_BLOCK = registerBlock("rusty_warehouse_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .requiresCorrectToolForDrops().strength(-1.0F, 6.0F).sound(SoundType.METAL)));
+                    .sound(SoundType.METAL).requiresCorrectToolForDrops().strength(15.0F, 2.0F)));
 
-    public static final RegistryObject<Block> METAL_PANELING = registerBlock("metal_paneling",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .requiresCorrectToolForDrops().strength(-1.0F, 6.0F).sound(SoundType.METAL)));
-
-
-    public static final RegistryObject<StairBlock> METAL_BRICK_STAIRS = registerBlock("metal_brick_stairs",
-                    () -> new StairBlock(() -> METAL_BRICK.get().defaultBlockState(),
-                            BlockBehaviour.Properties.copy(METAL_BRICK.get())));
-
-    public static final RegistryObject<SlabBlock> METAL_BRICK_SLAB = registerBlock("metal_brick_slab",
-                    () -> new SlabBlock(BlockBehaviour.Properties.copy(METAL_BRICK.get())));
-
-    public static final RegistryObject<StairBlock> METAL_ENGRAVED_STAIRS = registerBlock("metal_engraved_stairs",
-                    () -> new StairBlock(() -> METAL_ENGRAVED.get().defaultBlockState(),
-                            BlockBehaviour.Properties.copy(METAL_ENGRAVED.get())));
-
-    public static final RegistryObject<SlabBlock> METAL_ENGRAVED_SLAB = registerBlock("metal_engraved_slab",
-                    () -> new SlabBlock(BlockBehaviour.Properties.copy(METAL_ENGRAVED.get())));
-
-    public static final RegistryObject<StairBlock> METAL_PANELING_STAIRS = registerBlock("metal_paneling_stairs",
-                    () -> new StairBlock(() -> METAL_PANELING.get().defaultBlockState(),
-                            BlockBehaviour.Properties.copy(METAL_PANELING.get())));
-
-    public static final RegistryObject<SlabBlock> METAL_PANELING_SLAB = registerBlock("metal_paneling_slab",
-                    () -> new SlabBlock(BlockBehaviour.Properties.copy(METAL_PANELING.get())));
-
-
-    public static final RegistryObject<Block> RUSTY_WAREHOUSE_PLATING = registerBlock("rusty_warehouse_plating",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .sound(SoundType.METAL).requiresCorrectToolForDrops().strength(-1.0F, 2.0F)));
-
-    public static final RegistryObject<Block> RUSTY_WAREHOUSE_TREADING = registerBlock("rusty_warehouse_treading",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .sound(SoundType.METAL).requiresCorrectToolForDrops().strength(-1.0F, 2.0F)));
-
-    public static final RegistryObject<Block> RUSTY_WAREHOUSE_WALLING = registerBlock("rusty_warehouse_walling",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    .sound(SoundType.METAL).requiresCorrectToolForDrops().strength(-1.0F, 2.0F)));
-
-
-    public static final RegistryObject<Block> WAREHOUSE_PLATING = registerBlock("warehouse_plating",
-            () -> new RustingBlock(() -> RUSTY_WAREHOUSE_PLATING.get(),
+    public static final RegistryObject<Block> WAREHOUSE_BLOCK = registerBlock("warehouse_block",
+            () -> new RustingBlock(() -> RUSTY_WAREHOUSE_BLOCK.get(),
                     BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                            .requiresCorrectToolForDrops().strength(-1.0F, 4.0F).sound(SoundType.METAL)));
+                            .requiresCorrectToolForDrops().strength(30.0F, 4.0F).sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> WAREHOUSE_TREADING = registerBlock("warehouse_treading",
-            () -> new RustingBlock(() -> RUSTY_WAREHOUSE_TREADING.get(),
-                    BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                            .requiresCorrectToolForDrops().strength(-1.0F, 4.0F).sound(SoundType.METAL)));
+    public static final RegistryObject<StairBlock> RUSTY_WAREHOUSE_STAIRS = registerBlock("rusty_warehouse_stairs",
+                    () -> new StairBlock(() -> RUSTY_WAREHOUSE_BLOCK.get().defaultBlockState(),
+                            BlockBehaviour.Properties.copy(RUSTY_WAREHOUSE_BLOCK.get())));
 
-    public static final RegistryObject<Block> WAREHOUSE_WALLING = registerBlock("warehouse_walling",
-            () -> new RustingBlock(() -> RUSTY_WAREHOUSE_WALLING.get(),
-                    BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                            .requiresCorrectToolForDrops().strength(-1.0F, 4.0F).sound(SoundType.METAL)));
+    public static final RegistryObject<SlabBlock> RUSTY_WAREHOUSE_SLAB = registerBlock("rusty_warehouse_slab",
+                    () -> new SlabBlock(BlockBehaviour.Properties.copy(RUSTY_WAREHOUSE_BLOCK.get())));
 
+    public static final RegistryObject<StairBlock> WAREHOUSE_STAIRS = registerBlock("warehouse_stairs",
+            () -> new RustingStairBlock(() -> RUSTY_WAREHOUSE_STAIRS.get(),
+                    BlockBehaviour.Properties.copy(WAREHOUSE_BLOCK.get()), () -> WAREHOUSE_BLOCK.get().defaultBlockState()));
 
-    public static final RegistryObject<StairBlock> RUSTY_WAREHOUSE_PLATING_STAIRS = registerBlock("rusty_warehouse_plating_stairs",
-                    () -> new StairBlock(() -> RUSTY_WAREHOUSE_PLATING.get().defaultBlockState(),
-                            BlockBehaviour.Properties.copy(RUSTY_WAREHOUSE_PLATING.get())));
-
-    public static final RegistryObject<SlabBlock> RUSTY_WAREHOUSE_PLATING_SLAB = registerBlock("rusty_warehouse_plating_slab",
-                    () -> new SlabBlock(BlockBehaviour.Properties.copy(RUSTY_WAREHOUSE_PLATING.get())));
-
-    public static final RegistryObject<StairBlock> RUSTY_WAREHOUSE_TREADING_STAIRS = registerBlock("rusty_warehouse_treading_stairs",
-                    () -> new StairBlock(() -> RUSTY_WAREHOUSE_TREADING.get().defaultBlockState(),
-                            BlockBehaviour.Properties.copy(RUSTY_WAREHOUSE_TREADING.get())));
-
-    public static final RegistryObject<SlabBlock> RUSTY_WAREHOUSE_TREADING_SLAB = registerBlock("rusty_warehouse_treading_slab",
-                    () -> new SlabBlock(BlockBehaviour.Properties.copy(RUSTY_WAREHOUSE_TREADING.get())));
-
-    public static final RegistryObject<StairBlock> RUSTY_WAREHOUSE_WALLING_STAIRS = registerBlock("rusty_warehouse_walling_stairs",
-                    () -> new StairBlock(() -> RUSTY_WAREHOUSE_WALLING.get().defaultBlockState(),
-                            BlockBehaviour.Properties.copy(RUSTY_WAREHOUSE_WALLING.get())));
-
-    public static final RegistryObject<SlabBlock> RUSTY_WAREHOUSE_WALLING_SLAB = registerBlock("rusty_warehouse_walling_slab",
-                    () -> new SlabBlock(BlockBehaviour.Properties.copy(RUSTY_WAREHOUSE_WALLING.get())));
-
-
-    public static final RegistryObject<StairBlock> WAREHOUSE_PLATING_STAIRS = registerBlock("warehouse_plating_stairs",
-            () -> new RustingStairBlock(() -> RUSTY_WAREHOUSE_PLATING_STAIRS.get(),
-                    BlockBehaviour.Properties.copy(WAREHOUSE_PLATING.get()), () -> WAREHOUSE_PLATING.get().defaultBlockState()));
-
-    public static final RegistryObject<SlabBlock> WAREHOUSE_PLATING_SLAB = registerBlock("warehouse_plating_slab",
-            () -> new RustingSlabBlock(() -> RUSTY_WAREHOUSE_PLATING_SLAB.get(),
-                    BlockBehaviour.Properties.copy(WAREHOUSE_PLATING.get())));
-
-    public static final RegistryObject<StairBlock> WAREHOUSE_TREADING_STAIRS = registerBlock("warehouse_treading_stairs",
-            () -> new RustingStairBlock(() -> RUSTY_WAREHOUSE_TREADING_STAIRS.get(),
-                    BlockBehaviour.Properties.copy(WAREHOUSE_TREADING.get()), () -> WAREHOUSE_TREADING.get().defaultBlockState()));
-
-    public static final RegistryObject<SlabBlock> WAREHOUSE_TREADING_SLAB = registerBlock("warehouse_treading_slab",
-            () -> new RustingSlabBlock(() -> RUSTY_WAREHOUSE_TREADING_SLAB.get(),
-                    BlockBehaviour.Properties.copy(WAREHOUSE_TREADING.get())));
-
-    public static final RegistryObject<StairBlock> WAREHOUSE_WALLING_STAIRS = registerBlock("warehouse_walling_stairs",
-            () -> new RustingStairBlock(() -> RUSTY_WAREHOUSE_WALLING_STAIRS.get(),
-                    BlockBehaviour.Properties.copy(WAREHOUSE_WALLING.get()), () -> WAREHOUSE_WALLING.get().defaultBlockState()));
-
-    public static final RegistryObject<SlabBlock> WAREHOUSE_WALLING_SLAB = registerBlock("warehouse_walling_slab",
-            () -> new RustingSlabBlock(() -> RUSTY_WAREHOUSE_WALLING_SLAB.get(),
-                    BlockBehaviour.Properties.copy(WAREHOUSE_WALLING.get())));
+    public static final RegistryObject<SlabBlock> WAREHOUSE_SLAB = registerBlock("warehouse_slab",
+            () -> new RustingSlabBlock(() -> RUSTY_WAREHOUSE_SLAB.get(),
+                    BlockBehaviour.Properties.copy(WAREHOUSE_BLOCK.get())));
 
 
     public static final RegistryObject<Block> JUKEBOX = registerBlock("jukebox",
@@ -142,6 +68,16 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> BAUXITE_ORE = registerBlock("bauxite_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
+
+    public static final RegistryObject<Block> BLACK_TITANIUM_ORE = registerBlock("black_titanium_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
+
+    public static final RegistryObject<Block> LEAD_ORE = registerBlock("lead_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .instrument(NoteBlockInstrument.BASEDRUM)
                     .requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
@@ -162,6 +98,14 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> DEEPSLATE_BAUXITE_ORE = registerBlock("deepslate_bauxite_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+                    .strength(4.5F, 3.0F).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> DEEPSLATE_BLACK_TITANIUM_ORE = registerBlock("deepslate_black_titanium_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+                    .strength(4.5F, 3.0F).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
                     .strength(4.5F, 3.0F).requiresCorrectToolForDrops()));
 

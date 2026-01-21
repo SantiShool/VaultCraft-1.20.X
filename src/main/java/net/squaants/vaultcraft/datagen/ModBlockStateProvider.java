@@ -17,69 +17,33 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(ModBlocks.METAL_BRICK);
-        blockWithItem(ModBlocks.METAL_ENGRAVED);
-        blockWithItem(ModBlocks.METAL_PANELING);
+        blockWithItem(ModBlocks.METAL_BLOCK);
+        blockWithItem(ModBlocks.RUSTY_WAREHOUSE_BLOCK);
+        blockWithItem(ModBlocks.WAREHOUSE_BLOCK);
 
-        stairsBlock(ModBlocks.METAL_BRICK_STAIRS.get(), blockTexture(ModBlocks.METAL_BRICK.get()));
-        blockItem(ModBlocks.METAL_BRICK_STAIRS);
-        stairsBlock(ModBlocks.METAL_ENGRAVED_STAIRS.get(), blockTexture(ModBlocks.METAL_ENGRAVED.get()));
-        blockItem(ModBlocks.METAL_ENGRAVED_STAIRS);
-        stairsBlock(ModBlocks.METAL_PANELING_STAIRS.get(), blockTexture(ModBlocks.METAL_PANELING.get()));
-        blockItem(ModBlocks.METAL_PANELING_STAIRS);
-
-        slabBlock(ModBlocks.METAL_BRICK_SLAB.get(), blockTexture(ModBlocks.METAL_BRICK.get()), blockTexture(ModBlocks.METAL_BRICK.get()));
-        blockItem(ModBlocks.METAL_BRICK_SLAB);
-        slabBlock(ModBlocks.METAL_ENGRAVED_SLAB.get(), blockTexture(ModBlocks.METAL_ENGRAVED.get()), blockTexture(ModBlocks.METAL_ENGRAVED.get()));
-        blockItem(ModBlocks.METAL_ENGRAVED_SLAB);
-        slabBlock(ModBlocks.METAL_PANELING_SLAB.get(), blockTexture(ModBlocks.METAL_PANELING.get()), blockTexture(ModBlocks.METAL_PANELING.get()));
-        blockItem(ModBlocks.METAL_PANELING_SLAB);
-
-
-        blockWithItem(ModBlocks.RUSTY_WAREHOUSE_PLATING);
-        blockWithItem(ModBlocks.RUSTY_WAREHOUSE_TREADING);
-        blockWithItem(ModBlocks.RUSTY_WAREHOUSE_WALLING);
-
-        stairsBlock(ModBlocks.RUSTY_WAREHOUSE_PLATING_STAIRS.get(), blockTexture(ModBlocks.RUSTY_WAREHOUSE_PLATING.get()));
-        blockItem(ModBlocks.RUSTY_WAREHOUSE_PLATING_STAIRS);
-        stairsBlock(ModBlocks.RUSTY_WAREHOUSE_TREADING_STAIRS.get(), blockTexture(ModBlocks.RUSTY_WAREHOUSE_TREADING.get()));
-        blockItem(ModBlocks.RUSTY_WAREHOUSE_TREADING_STAIRS);
-        stairsBlock(ModBlocks.RUSTY_WAREHOUSE_WALLING_STAIRS.get(), blockTexture(ModBlocks.RUSTY_WAREHOUSE_WALLING.get()));
-        blockItem(ModBlocks.RUSTY_WAREHOUSE_WALLING_STAIRS);
-
-        slabBlock(ModBlocks.RUSTY_WAREHOUSE_PLATING_SLAB.get(), blockTexture(ModBlocks.RUSTY_WAREHOUSE_PLATING.get()), blockTexture(ModBlocks.RUSTY_WAREHOUSE_PLATING.get()));
-        blockItem(ModBlocks.RUSTY_WAREHOUSE_PLATING_SLAB);
-        slabBlock(ModBlocks.RUSTY_WAREHOUSE_TREADING_SLAB.get(), blockTexture(ModBlocks.RUSTY_WAREHOUSE_TREADING.get()), blockTexture(ModBlocks.RUSTY_WAREHOUSE_TREADING.get()));
-        blockItem(ModBlocks.RUSTY_WAREHOUSE_TREADING_SLAB);
-        slabBlock(ModBlocks.RUSTY_WAREHOUSE_WALLING_SLAB.get(), blockTexture(ModBlocks.RUSTY_WAREHOUSE_WALLING.get()), blockTexture(ModBlocks.RUSTY_WAREHOUSE_WALLING.get()));
-        blockItem(ModBlocks.RUSTY_WAREHOUSE_WALLING_SLAB);
-
-
-        blockWithItem(ModBlocks.WAREHOUSE_PLATING);
-        blockWithItem(ModBlocks.WAREHOUSE_TREADING);
-        blockWithItem(ModBlocks.WAREHOUSE_WALLING);
-
-        stairsBlock(ModBlocks.WAREHOUSE_PLATING_STAIRS.get(), blockTexture(ModBlocks.WAREHOUSE_PLATING.get()));
-        blockItem(ModBlocks.WAREHOUSE_PLATING_STAIRS);
-        stairsBlock(ModBlocks.WAREHOUSE_TREADING_STAIRS.get(), blockTexture(ModBlocks.WAREHOUSE_TREADING.get()));
-        blockItem(ModBlocks.WAREHOUSE_TREADING_STAIRS);
-        stairsBlock(ModBlocks.WAREHOUSE_WALLING_STAIRS.get(), blockTexture(ModBlocks.WAREHOUSE_WALLING.get()));
-        blockItem(ModBlocks.WAREHOUSE_WALLING_STAIRS);
-
-        slabBlock(ModBlocks.WAREHOUSE_PLATING_SLAB.get(), blockTexture(ModBlocks.WAREHOUSE_PLATING.get()), blockTexture(ModBlocks.WAREHOUSE_PLATING.get()));
-        blockItem(ModBlocks.WAREHOUSE_PLATING_SLAB);
-        slabBlock(ModBlocks.WAREHOUSE_TREADING_SLAB.get(), blockTexture(ModBlocks.WAREHOUSE_TREADING.get()), blockTexture(ModBlocks.WAREHOUSE_TREADING.get()));
-        blockItem(ModBlocks.WAREHOUSE_TREADING_SLAB);
-        slabBlock(ModBlocks.WAREHOUSE_WALLING_SLAB.get(), blockTexture(ModBlocks.WAREHOUSE_WALLING.get()), blockTexture(ModBlocks.WAREHOUSE_WALLING.get()));
-        blockItem(ModBlocks.WAREHOUSE_WALLING_SLAB);
-
+        stairsBlock(ModBlocks.METAL_STAIRS.get(), blockTexture(ModBlocks.METAL_BLOCK.get()));
+        blockItem(ModBlocks.METAL_STAIRS);
+        slabBlock(ModBlocks.METAL_SLAB.get(), blockTexture(ModBlocks.METAL_BLOCK.get()), blockTexture(ModBlocks.METAL_BLOCK.get()));
+        blockItem(ModBlocks.METAL_SLAB);
+        stairsBlock(ModBlocks.RUSTY_WAREHOUSE_STAIRS.get(), blockTexture(ModBlocks.RUSTY_WAREHOUSE_BLOCK.get()));
+        blockItem(ModBlocks.RUSTY_WAREHOUSE_STAIRS);
+        slabBlock(ModBlocks.RUSTY_WAREHOUSE_SLAB.get(), blockTexture(ModBlocks.RUSTY_WAREHOUSE_BLOCK.get()), blockTexture(ModBlocks.RUSTY_WAREHOUSE_BLOCK.get()));
+        blockItem(ModBlocks.RUSTY_WAREHOUSE_SLAB);
+        stairsBlock(ModBlocks.WAREHOUSE_STAIRS.get(), blockTexture(ModBlocks.WAREHOUSE_BLOCK.get()));
+        blockItem(ModBlocks.WAREHOUSE_STAIRS);
+        slabBlock(ModBlocks.WAREHOUSE_SLAB.get(), blockTexture(ModBlocks.WAREHOUSE_BLOCK.get()), blockTexture(ModBlocks.WAREHOUSE_BLOCK.get()));
+        blockItem(ModBlocks.WAREHOUSE_SLAB);
 
         blockWithItem(ModBlocks.BAUXITE_ORE);
+        blockWithItem(ModBlocks.BLACK_TITANIUM_ORE);
+        blockWithItem(ModBlocks.LEAD_ORE);
         blockWithItem(ModBlocks.SILVER_ORE);
         blockWithItem(ModBlocks.ULTRACITE_ORE);
         blockWithItem(ModBlocks.URANIUM_ORE);
 
         blockWithItem(ModBlocks.DEEPSLATE_BAUXITE_ORE);
+        blockWithItem(ModBlocks.DEEPSLATE_BLACK_TITANIUM_ORE);
+        blockWithItem(ModBlocks.DEEPSLATE_LEAD_ORE);
         blockWithItem(ModBlocks.DEEPSLATE_SILVER_ORE);
         blockWithItem(ModBlocks.DEEPSLATE_ULTRACITE_ORE);
         blockWithItem(ModBlocks.DEEPSLATE_URANIUM_ORE);

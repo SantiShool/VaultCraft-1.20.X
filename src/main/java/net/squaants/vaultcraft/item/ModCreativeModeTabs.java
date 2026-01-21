@@ -15,47 +15,31 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, VaultCraft.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> VC_BLOCKS = CREATIVE_MODE_TABS.register("vc_blocks",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.METAL_PANELING.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.METAL_BLOCK.get()))
                     .title(Component.translatable("creativetab.vc_blocks"))
                     .displayItems((displayParameters, output) -> {
 
                         output.accept(ModBlocks.JUKEBOX.get());
 
-                        output.accept(ModBlocks.METAL_BRICK.get());
-                        output.accept(ModBlocks.METAL_ENGRAVED.get());
-                        output.accept(ModBlocks.METAL_PANELING.get());
-                        output.accept(ModBlocks.METAL_BRICK_STAIRS.get());
-                        output.accept(ModBlocks.METAL_BRICK_SLAB.get());
-                        output.accept(ModBlocks.METAL_ENGRAVED_STAIRS.get());
-                        output.accept(ModBlocks.METAL_ENGRAVED_SLAB.get());
-                        output.accept(ModBlocks.METAL_PANELING_STAIRS.get());
-                        output.accept(ModBlocks.METAL_PANELING_SLAB.get());
-
-                        output.accept(ModBlocks.RUSTY_WAREHOUSE_PLATING.get());
-                        output.accept(ModBlocks.RUSTY_WAREHOUSE_TREADING.get());
-                        output.accept(ModBlocks.RUSTY_WAREHOUSE_WALLING.get());
-                        output.accept(ModBlocks.RUSTY_WAREHOUSE_PLATING_STAIRS.get());
-                        output.accept(ModBlocks.RUSTY_WAREHOUSE_PLATING_SLAB.get());
-                        output.accept(ModBlocks.RUSTY_WAREHOUSE_TREADING_STAIRS.get());
-                        output.accept(ModBlocks.RUSTY_WAREHOUSE_TREADING_SLAB.get());
-                        output.accept(ModBlocks.RUSTY_WAREHOUSE_WALLING_STAIRS.get());
-                        output.accept(ModBlocks.RUSTY_WAREHOUSE_WALLING_SLAB.get());
-
-                        output.accept(ModBlocks.WAREHOUSE_PLATING.get());
-                        output.accept(ModBlocks.WAREHOUSE_TREADING.get());
-                        output.accept(ModBlocks.WAREHOUSE_WALLING.get());
-                        output.accept(ModBlocks.WAREHOUSE_PLATING_STAIRS.get());
-                        output.accept(ModBlocks.WAREHOUSE_PLATING_SLAB.get());
-                        output.accept(ModBlocks.WAREHOUSE_TREADING_STAIRS.get());
-                        output.accept(ModBlocks.WAREHOUSE_TREADING_SLAB.get());
-                        output.accept(ModBlocks.WAREHOUSE_WALLING_STAIRS.get());
-                        output.accept(ModBlocks.WAREHOUSE_WALLING_SLAB.get());
+                        output.accept(ModBlocks.METAL_BLOCK.get());
+                        output.accept(ModBlocks.METAL_STAIRS.get());
+                        output.accept(ModBlocks.METAL_SLAB.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_BLOCK.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_STAIRS.get());
+                        output.accept(ModBlocks.RUSTY_WAREHOUSE_SLAB.get());
+                        output.accept(ModBlocks.WAREHOUSE_BLOCK.get());
+                        output.accept(ModBlocks.WAREHOUSE_STAIRS.get());
+                        output.accept(ModBlocks.WAREHOUSE_SLAB.get());
 
                         output.accept(ModBlocks.BAUXITE_ORE.get());
+                        output.accept(ModBlocks.BLACK_TITANIUM_ORE.get());
+                        output.accept(ModBlocks.LEAD_ORE.get());
                         output.accept(ModBlocks.SILVER_ORE.get());
                         output.accept(ModBlocks.ULTRACITE_ORE.get());
                         output.accept(ModBlocks.URANIUM_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_BAUXITE_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_BLACK_TITANIUM_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_LEAD_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_SILVER_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_ULTRACITE_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_URANIUM_ORE.get());
@@ -63,10 +47,9 @@ public class ModCreativeModeTabs {
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> VC_TOOLS_N_UTILITIES = CREATIVE_MODE_TABS.register("vc_tools_n_utilities",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CAMP.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.FUEL.get()))
                     .title(Component.translatable("creativetab.vc_tools_n_utilities"))
                     .displayItems((displayParameters, output) -> {
-                        output.accept(ModItems.CAMP.get());
                         output.accept(ModItems.FUEL.get());
 
 
@@ -86,14 +69,6 @@ public class ModCreativeModeTabs {
                     .displayItems((displayParameters, output) -> {
                         output.accept(ModItems.FUEL.get());
 
-                        output.accept(ModItems.ACACIA_LOG.get());
-                        output.accept(ModItems.BIRCH_LOG.get());
-                        output.accept(ModItems.CHERRY_LOG.get());
-                        output.accept(ModItems.DARK_OAK_LOG.get());
-                        output.accept(ModItems.JUNGLE_LOG.get());
-                        output.accept(ModItems.MANGROVE_LOG.get());
-                        output.accept(ModItems.OAK_LOG.get());
-                        output.accept(ModItems.SPRUCE_LOG.get());
                         output.accept(ModItems.ACACIA_PLANK.get());
                         output.accept(ModItems.BIRCH_PLANK.get());
                         output.accept(ModItems.CHERRY_PLANK.get());
@@ -102,7 +77,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MANGROVE_PLANK.get());
                         output.accept(ModItems.OAK_PLANK.get());
                         output.accept(ModItems.SPRUCE_PLANK.get());
+
                         output.accept(ModItems.ALUMINUM_INGOT.get());
+                        output.accept(ModItems.BLACK_TITANIUM_INGOT.get());
+                        output.accept(ModItems.LEAD_INGOT.get());
                         output.accept(ModItems.SILVER_INGOT.get());
                         output.accept(ModItems.STEEL_INGOT.get());
                         output.accept(ModItems.RAW_BAUXITE.get());

@@ -3,7 +3,6 @@ package net.squaants.vaultcraft.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.squaants.vaultcraft.VaultCraft;
@@ -24,11 +23,27 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         // Everything here is mineable with a pickaxe
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 ModBlocks.JUKEBOX.get(),
+
+                ModBlocks.METAL_BLOCK.get(),
+                ModBlocks.RUSTY_WAREHOUSE_BLOCK.get(),
+                ModBlocks.WAREHOUSE_BLOCK.get(),
+
+                ModBlocks.METAL_STAIRS.get(),
+                ModBlocks.METAL_SLAB.get(),
+                ModBlocks.RUSTY_WAREHOUSE_STAIRS.get(),
+                ModBlocks.RUSTY_WAREHOUSE_SLAB.get(),
+                ModBlocks.WAREHOUSE_STAIRS.get(),
+                ModBlocks.WAREHOUSE_SLAB.get(),
+
                 ModBlocks.BAUXITE_ORE.get(),
+                ModBlocks.BLACK_TITANIUM_ORE.get(),
+                ModBlocks.LEAD_ORE.get(),
                 ModBlocks.SILVER_ORE.get(),
                 ModBlocks.ULTRACITE_ORE.get(),
                 ModBlocks.URANIUM_ORE.get(),
                 ModBlocks.DEEPSLATE_BAUXITE_ORE.get(),
+                ModBlocks.DEEPSLATE_BLACK_TITANIUM_ORE.get(),
+                ModBlocks.DEEPSLATE_LEAD_ORE.get(),
                 ModBlocks.DEEPSLATE_SILVER_ORE.get(),
                 ModBlocks.DEEPSLATE_ULTRACITE_ORE.get(),
                 ModBlocks.DEEPSLATE_URANIUM_ORE.get()

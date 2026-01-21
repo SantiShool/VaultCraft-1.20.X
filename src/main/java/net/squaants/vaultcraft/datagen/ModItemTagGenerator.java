@@ -21,10 +21,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        // This is where we can move your wooden_planks.json tag later
-        // Example:
-        // tag(ModTags.Items.WOODEN_PLANKS).add(
-        //     ModItems.ACACIA_PLANK.get(), ... );
+
     }
 
     @Override

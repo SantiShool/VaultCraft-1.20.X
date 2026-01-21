@@ -4,9 +4,8 @@
     "vaultcraft:jukebox"
   ,
     "vaultcraft:bauxite_ore",
-    "vaultcraft:silver_ore",
     "vaultcraft:deepslate_bauxite_ore",
-    "vaultcraft:deepslate_silver_ore"
-
+    "vaultcraft:lead_ore",
+    "vaultcraft:deepslate_lead_ore"
   ]
 }
