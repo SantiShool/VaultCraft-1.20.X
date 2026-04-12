@@ -40,3 +40,21 @@ src/main/java/net/squaants/vaultcraft/
 ├── item/
 ├── datagen/
 └── VaultCraft.java
+
+Badges
+![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/SantiShool/VaultCraft-1.20.X/badge)
+
+
+
+
+Contributing
+
+Contributions are welcome. Please fork the repository and submit a pull request.
+
+Issues
+
+If you find a bug or have a suggestion, open an issue on GitHub.
+
+License
+
+Add your license information here.
