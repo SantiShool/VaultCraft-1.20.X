@@ -45,7 +45,7 @@ Badges
 
 ![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/SantiShool/VaultCraft-1.20.X/badge)
 
-[![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/12485/badge)](https://bestpractices.coreinfrastructure.org/projects/12485)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12485/badge)](https://www.bestpractices.dev/projects/12485)
 
 Contributing
 
