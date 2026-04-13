@@ -2,7 +2,10 @@
 
 VaultCraft is a comprehensive Minecraft Forge mod that merges the sandbox world of Minecraft with the gritty, post-apocalyptic atmosphere of the **Fallout** universe.
 
-
+### 🛡️ Project Status & Security
+| OpenSSF Best Practices | OpenSSF Scorecard |
+| :--- | :--- |
+| [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12485/badge?v=99)](https://www.bestpractices.dev/projects/12485) | ![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/SantiShool/VaultCraft-1.20.X/badge) |
 
 ## Overview
 
