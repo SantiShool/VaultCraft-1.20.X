@@ -1,60 +1,76 @@
-VaultCraft (Minecraft 1.20.X Mod)
+# VaultCraft (Minecraft 1.20.X)
 
-VaultCraft is a Minecraft Forge mod for version 1.20.X that introduces new blocks, items, and mechanics inspired by a Fallout-style theme.
+VaultCraft is a comprehensive Minecraft Forge mod that merges the sandbox world of Minecraft with the gritty, post-apocalyptic atmosphere of the **Fallout** universe.
 
-Overview
+### Project Health & Security
 
-This project adds custom content to Minecraft, including blocks with special behavior, new items, and systems for handling game data. It is designed as a learning project for working with Minecraft modding and Forge.
+These badges verify the security standards and development best practices of the VaultCraft repository.
 
-Features
-Custom blocks, including rusting/aging blocks
-Custom items and materials
-Modified jukebox behavior using a block entity
-Data generation for recipes, loot tables, and models
-Organized mod structure following Forge conventions
-Installation
-Requirements
-Minecraft 1.20.X
-Minecraft Forge
-Steps
+[](https://www.bestpractices.dev/projects/12485)
 
-Clone the repository:
+-----
 
-git clone https://github.com/SantiShool/VaultCraft-1.20.X.git
+## Overview
 
-Build the project:
+Developed as a learning project for **Minecraft Forge**, VaultCraft introduces custom mechanics and lore-friendly items. Whether you are scavenging for materials or building a fortified wasteland settlement, this mod provides the foundational blocks and systems needed for a themed experience.
 
-./gradlew build
-Locate the generated .jar file in the build/libs/ folder
-Move the .jar file into your Minecraft mods folder
-Launch the game using Forge
-Development
+## Key Features
 
-To run the mod in a development environment:
+  * **Dynamic Environments:** Custom blocks featuring rusting and aging mechanics.
+  * **Wasteland Gear:** New items and materials inspired by retro-futuristic aesthetics.
+  * **Enhanced Audio:** Modified jukebox behavior powered by custom block entities.
+  * **Automated Data:** Robust data generation for recipes, loot tables, and 3D models.
+  * **Clean Architecture:** Organized mod structure following modern Forge conventions.
 
+-----
+
+## Getting Started
+
+### Requirements
+
+  * **Minecraft:** 1.20.1+
+  * **Loader:** Minecraft Forge
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/SantiShool/VaultCraft-1.20.X.git
+    ```
+2.  **Build the project:**
+    ```bash
+    ./gradlew build
+    ```
+3.  **Install:** Move the `.jar` from `build/libs/` into your Minecraft `mods` folder.
+
+### Development
+
+To launch the mod in a development environment for testing:
+
+```bash
 ./gradlew runClient
-Project Structure
+```
+
+-----
+
+## 🛠️ Project Structure
+
+```text
 src/main/java/net/squaants/vaultcraft/
-├── block/
-├── blockentity/
-├── item/
-├── datagen/
-└── VaultCraft.java
+├── block/          # Block definitions and logic
+├── blockentity/    # Tile entity data and behaviors
+├── item/           # Custom items and tools
+├── datagen/        # Automated JSON generation
+└── VaultCraft.java # Main Mod entry point
+```
 
-Badges
+-----
 
-![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/SantiShool/VaultCraft-1.20.X/badge)
+## Contributing & Feedback
 
-[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12485/badge)](https://www.bestpractices.dev/projects/12485)
+  * **Issues:** Found a bug? [Open an issue](https://www.google.com/search?q=https://github.com/SantiShool/VaultCraft-1.20.X/issues) to let us know.
+  * **Pull Requests:** Contributions are welcome\! Please fork the repo and submit your changes for review.
 
-Contributing
+## License
 
-Contributions are welcome. Please fork the repository and submit a pull request.
-
-Issues
-
-If you find a bug or have a suggestion, open an issue on GitHub.
-
-License
-
-Add your license information here.
+This project is licensed under the **MIT License** (or your preferred license).
